@@ -66,12 +66,11 @@ Overview of files and sidebar navigation.
 #### Documents View
 ![Documents](public/assets/thumbnails/documents.png)
 
+#### Edit File
+![Edit File](public/assets/thumbnails/edit.png)
 
 #### File Details
 ![File Details](public/assets/thumbnails/details.png)
-
-#### Edit File
-![Edit File](public/assets/thumbnails/edit.png)
 
 #### Rename File
 ![Rename](public/assets/thumbnails/rename.png)
