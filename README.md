@@ -44,29 +44,9 @@ Welcome to **WiVault**, your modern platform for managing cloud files, with secu
 #### 🏠 Main Dashboard
 Overview of files and sidebar navigation.
 
-![Dashboard](public/assets/images/files.png)
+![Dashboard](public/assets/thumbnails/dashboard.png)
 
-#### 👤 User Settings Modal
-Edit your name and avatar with instant preview.
-
-![User Settings](public/assets/images/avatar.png)
-
-#### 📂 File Upload
-Drag and drop files for easy upload.
-
-![File Upload](public/assets/images/photo.png)
-
-#### 🖼️ Default Avatars
-Choose from default avatars or upload your own.
-
-![Default Avatars](public/assets/images/avatar-2.jpg)
-
----
-
-### 📸 More Screenshots (Thumbnails)
-
-#### Dashboard (alt)
-![Dashboard Alt](public/assets/thumbnails/dashboarrd.png)
+#### 📸 App implementations
 
 #### File Details
 ![File Details](public/assets/thumbnails/details.png)
