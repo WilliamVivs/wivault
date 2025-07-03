@@ -1,3 +1,4 @@
+import { deleteUserAccount } from '../lib/actions/user.actions';
 /* eslint-disable no-unused-vars */
 
 declare type FileType = "document" | "image" | "video" | "audio" | "other";
@@ -74,3 +75,24 @@ declare interface ShareInputProps {
   onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onRemove: (email: string) => void;
 }
+
+
+declare interface updateUserEmailProps {
+  accountId: string;
+  editNewEmail: string;
+}
+
+declare interface updateUserAvatarProps {
+  accountId: string;
+  editAvatar: string;
+}
+
+declare interface updateUserNameProps {
+  accountId: string;
+  editFullName: string;
+}
+
+declare interface deleteUserAccountProps {
+  accountId: string;
+}
+

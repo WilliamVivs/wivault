@@ -24,9 +24,15 @@ import { useRouter } from "next/navigation";
 const OtpModal = ({
   accountId,
   email,
+  redirectOnSuccess = true,
+  onSuccess,
+  onClose,
 }: {
   accountId: string;
   email: string;
+  redirectOnSuccess?: boolean;
+  onSuccess?: () => void;
+  onClose?: () => void;
 }) => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(true);
@@ -36,19 +42,19 @@ const OtpModal = ({
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setIsLoading(true);
-
-    console.log({ accountId, password });
-
     try {
       const sessionId = await verifySecret({ accountId, password });
-
-      console.log({ sessionId });
-
-      if (sessionId) router.push("/");
+      if (sessionId) {
+        setIsOpen(false);
+        if (redirectOnSuccess) {
+          router.push("/");
+        } else if (onSuccess) {
+          onSuccess();
+        }
+      }
     } catch (error) {
       console.log("Failed to verify OTP", error);
     }
-
     setIsLoading(false);
   };
 
@@ -56,8 +62,16 @@ const OtpModal = ({
     await sendEmailOTP({ email });
   };
 
+  const handleClose = () => {
+    setIsOpen(false);
+    if (onClose) onClose();
+  };
+
   return (
-    <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
+    <AlertDialog open={isOpen} onOpenChange={(open) => {
+      setIsOpen(open);
+      if (!open && onClose) onClose();
+    }}>
       <AlertDialogContent className="shad-alert-dialog">
         <AlertDialogHeader className="relative flex justify-center">
           <AlertDialogTitle className="h2 text-center">
@@ -67,7 +81,7 @@ const OtpModal = ({
               alt="close"
               width={20}
               height={20}
-              onClick={() => setIsOpen(false)}
+              onClick={handleClose}
               className="otp-close-button"
             />
           </AlertDialogTitle>

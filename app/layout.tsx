@@ -10,8 +10,8 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "StoreIt",
-  description: "StoreIt - The only storage solution you need.",
+  title: "WiVault",
+  description: "WiVault - Make it secure simple and fast",
 };
 
 export default function RootLayout({

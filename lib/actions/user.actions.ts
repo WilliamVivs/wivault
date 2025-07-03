@@ -7,6 +7,7 @@ import { parseStringify } from "@/lib/utils";
 import { cookies } from "next/headers";
 import { avatarPlaceholderUrl } from "@/constants";
 import { redirect } from "next/navigation";
+import { deleteUserAccountProps, updateUserAvatarProps, updateUserEmailProps, updateUserNameProps } from "@/types";
 
 const getUserByEmail = async (email: string) => {
   const { databases } = await createAdminClient();
@@ -141,3 +142,78 @@ export const signInUser = async ({ email }: { email: string }) => {
     handleError(error, "Failed to sign in user");
   }
 };
+
+
+
+export const updateUserName = async ({ accountId, editFullName }: updateUserNameProps) => {
+  try {
+    const { databases } = await createAdminClient();
+    const user = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.usersCollectionId, 
+      [Query.equal("accountId", accountId)]
+    );
+    if (user.total <= 0) throw new Error("User not found");
+    await databases.updateDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.usersCollectionId,
+      user.documents[0].$id,
+      { fullName: editFullName }
+    );
+    console.log("Username updated successfully");
+    return { success: true };
+  } catch (error) {
+    handleError(error, "Failed to update user name");
+    console.log(error,"error in updateUsername");
+    
+  }
+};
+
+
+// Cambia la foto de perfil del usuario
+export const updateUserAvatar = async ({ accountId, editAvatar }: updateUserAvatarProps) => {
+  try {
+    const { databases } = await createAdminClient();
+    const user = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.usersCollectionId,
+      [Query.equal("accountId", accountId)]
+    );
+    if (user.total <= 0) throw new Error("User not found");
+    await databases.updateDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.usersCollectionId,
+      user.documents[0].$id,
+      { avatar: editAvatar }
+    );
+    return { success: true };
+  } catch (error) {
+    handleError(error, "Failed to update user avatar");
+  }
+};
+
+// Elimina la cuenta de usuario y redirige al inicio
+export const deleteUserAccount = async ({ accountId }: deleteUserAccountProps) => {
+  try {
+    const { databases, account } = await createAdminClient();
+    const user = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.usersCollectionId,
+      [Query.equal("accountId", accountId)]
+    );
+    if (user.total <= 0) throw new Error("User not found");
+    await databases.deleteDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.usersCollectionId,
+      user.documents[0].$id
+    );
+    // Elimina la sesión si existe
+    try { await account.deleteSession("current"); } catch {}
+    (await cookies()).delete("appwrite-session");
+    redirect("/sign-in");
+  } catch (error) {
+    handleError(error, "Failed to delete user account");
+  }
+};
+
+

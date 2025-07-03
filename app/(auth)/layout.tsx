@@ -7,24 +7,24 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <section className="hidden w-1/2 items-center justify-center bg-brand p-10 lg:flex xl:w-2/5">
         <div className="flex max-h-[800px] max-w-[430px] flex-col justify-center space-y-12">
           <Image
-            src="/assets/icons/logo-full.svg"
+            src="/assets/icons/logo-full.png"
             alt="logo"
-            width={224}
-            height={82}
-            className="h-auto"
+            width={300}
+            height={120}
+          className="h-auto"
           />
 
-          <div className="space-y-5 text-white">
-            <h1 className="h1">Manage your files the best way</h1>
+          <div className="space-y-6 text-white">
+            <h1 className="h1">Make it secure, simple and fast</h1>
             <p className="body-1">
-              This is a place where you can store all your documents.
+              Here you can save all your documents, images and files effortlessly.
             </p>
           </div>
           <Image
             src="/assets/images/files.png"
             alt="Files"
-            width={342}
-            height={342}
+            width={400}
+            height={400}
             className="transition-all hover:rotate-2 hover:scale-105"
           />
         </div>
@@ -33,7 +33,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <section className="flex flex-1 flex-col items-center bg-white p-4 py-10 lg:justify-center lg:p-10 lg:py-0">
         <div className="mb-16 lg:hidden">
           <Image
-            src="/assets/icons/logo-full-brand.svg"
+            src="/assets/icons/logo-full-brand.png"
             alt="logo"
             width={224}
             height={82}
