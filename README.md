@@ -48,29 +48,33 @@ Overview of files and sidebar navigation.
 
 #### 📸 App implementations
 
-#### File Details
-![File Details](public/assets/thumbnails/details.png)
-
-#### Documents View
-![Documents](public/assets/thumbnails/documents.png)
-
-#### Edit File
-![Edit File](public/assets/thumbnails/edit.png)
-
-#### Images View
-![Images](public/assets/thumbnails/imagenes.png)
+#### Login Page
+![Login](public/assets/thumbnails/login.png)
 
 #### Register Page
 ![Register](public/assets/thumbnails/registro.png)
 
+#### OTP Verification
+![OTP](public/assets/thumbnails/OTP.png)
+
+#### Images View
+![Images](public/assets/thumbnails/imagenes.png)
+
+#### Videos View
+![Videos](public/assets/thumbnails/videos.png)
+
+#### Documents View
+![Documents](public/assets/thumbnails/documents.png)
+
+
+#### File Details
+![File Details](public/assets/thumbnails/details.png)
+
+#### Edit File
+![Edit File](public/assets/thumbnails/edit.png)
+
 #### Rename File
 ![Rename](public/assets/thumbnails/rename.png)
-
-#### Settings Changed
-![Settings Changed](public/assets/thumbnails/settings-changed.png)
-
-#### Settings Modal
-![Settings Modal](public/assets/thumbnails/settings.png)
 
 #### Share File
 ![Share](public/assets/thumbnails/share.png)
@@ -78,14 +82,11 @@ Overview of files and sidebar navigation.
 #### Upload File
 ![Upload](public/assets/thumbnails/upload.png)
 
-#### Videos View
-![Videos](public/assets/thumbnails/videos.png)
+#### Settings Modal
+![Settings Modal](public/assets/thumbnails/settings.png)
 
-#### OTP Verification
-![OTP](public/assets/thumbnails/OTP.png)
-
-#### Custom Screenshot
-![Custom Screenshot](public/assets/thumbnails/Captura de pantalla 2025-07-02 212643.png)
+#### Settings Changed
+![Settings Changed](public/assets/thumbnails/settings-changed.png)
 
 ---
 
